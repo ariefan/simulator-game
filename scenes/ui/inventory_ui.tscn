@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckw8dv5mn3pqx"]
+
+[ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="1_inventory"]
+
+[node name="InventoryUI" type="CanvasLayer"]
+layer = 4
+script = ExtResource("1_inventory")
+
+[node name="InventoryPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -500.0
+offset_right = 350.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TitleLabel" type="Label" parent="InventoryPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "INVENTORY"
+horizontal_alignment = 1
+label_settings = SubResource("LabelSettings_title")
+
+[node name="ItemList" type="ItemList" parent="InventoryPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonContainer" type="HBoxContainer" parent="InventoryPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="UseButton" type="Button" parent="InventoryPanel/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "USE ITEM"
+
+[node name="CloseButton" type="Button" parent="InventoryPanel/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CLOSE"
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 32

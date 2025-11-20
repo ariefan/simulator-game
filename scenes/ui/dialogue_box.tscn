@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq4m8jv3n7h5k"]
+
+[ext_resource type="Script" path="res://scripts/ui/dialogue_box.gd" id="1_dialogue"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_dialogue")
+
+[node name="DialoguePanel" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -300.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialoguePanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SpeakerLabel" type="Label" parent="DialoguePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Speaker Name"
+label_settings = SubResource("LabelSettings_speaker")
+
+[node name="DialogueLabel" type="Label" parent="DialoguePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dialogue text goes here. This is what the NPC is saying to the player."
+autowrap_mode = 3
+
+[node name="ContinueLabel" type="Label" parent="DialoguePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "[Press INTERACT to continue]"
+horizontal_alignment = 2
+label_settings = SubResource("LabelSettings_continue")
+
+[sub_resource type="LabelSettings" id="LabelSettings_speaker"]
+font_size = 24
+font_color = Color(1, 0.8, 0.2, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_continue"]
+font_size = 14
+font_color = Color(0.7, 0.7, 0.7, 1)

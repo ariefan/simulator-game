@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx3m5nx7kp8ym"]
+
+[ext_resource type="PackedScene" uid="uid://dq3m5nx7kp8yw" path="res://scenes/world/field.tscn" id="1_field"]
+[ext_resource type="PackedScene" uid="uid://dsrxqw2k5pko8" path="res://scenes/ui/hud.tscn" id="2_hud"]
+[ext_resource type="PackedScene" uid="uid://csh8xw5y7n3vq" path="res://scenes/ui/mobile_controls.tscn" id="3_mobile"]
+[ext_resource type="PackedScene" uid="uid://cq4m8jv3n7h5k" path="res://scenes/ui/dialogue_box.tscn" id="4_dialogue"]
+[ext_resource type="PackedScene" uid="uid://b2twdvxqm8iqr" path="res://scenes/ui/quest_log.tscn" id="5_quest_log"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CurrentWorld" parent="." instance=ExtResource("1_field")]
+
+[node name="HUD" parent="." instance=ExtResource("2_hud")]
+
+[node name="MobileControls" parent="." instance=ExtResource("3_mobile")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("4_dialogue")]
+
+[node name="QuestLog" parent="." instance=ExtResource("5_quest_log")]

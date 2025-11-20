@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw8nx5m7pqr3k"]
+
+[ext_resource type="PackedScene" uid="uid://b6y1qvxjn7yqr" path="res://scenes/player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://bxt3y5nqw8m7p" path="res://scenes/npc/npc.tscn" id="2_npc"]
+[ext_resource type="PackedScene" uid="uid://c8vkm2p7nqx5w" path="res://scenes/world/portal.tscn" id="3_portal"]
+[ext_resource type="PackedScene" uid="uid://dsrxqw2k5pko8" path="res://scenes/ui/hud.tscn" id="4_hud"]
+[ext_resource type="PackedScene" uid="uid://csh8xw5y7n3vq" path="res://scenes/ui/mobile_controls.tscn" id="5_mobile"]
+[ext_resource type="PackedScene" uid="uid://cq4m8jv3n7h5k" path="res://scenes/ui/dialogue_box.tscn" id="6_dialogue"]
+[ext_resource type="PackedScene" uid="uid://b2twdvxqm8iqr" path="res://scenes/ui/quest_log.tscn" id="7_quest_log"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_floor"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wall"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(60, 60)
+
+[node name="House" type="Node2D"]
+
+[node name="Floor" type="Sprite2D" parent="."]
+modulate = Color(0.6, 0.5, 0.4, 1)
+position = Vector2(540, 960)
+scale = Vector2(800, 1200)
+texture = SubResource("PlaceholderTexture2D_floor")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="WallTop" type="StaticBody2D" parent="Walls"]
+position = Vector2(540, 330)
+collision_layer = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/WallTop"]
+modulate = Color(0.5, 0.4, 0.3, 1)
+scale = Vector2(800, 60)
+texture = SubResource("PlaceholderTexture2D_wall")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallTop"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="WallBottom" type="StaticBody2D" parent="Walls"]
+position = Vector2(540, 1590)
+collision_layer = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/WallBottom"]
+modulate = Color(0.5, 0.4, 0.3, 1)
+scale = Vector2(800, 60)
+texture = SubResource("PlaceholderTexture2D_wall")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBottom"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="WallLeft" type="StaticBody2D" parent="Walls"]
+position = Vector2(110, 960)
+collision_layer = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/WallLeft"]
+modulate = Color(0.5, 0.4, 0.3, 1)
+scale = Vector2(60, 1200)
+texture = SubResource("PlaceholderTexture2D_wall")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="WallRight" type="StaticBody2D" parent="Walls"]
+position = Vector2(970, 960)
+collision_layer = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/WallRight"]
+modulate = Color(0.5, 0.4, 0.3, 1)
+scale = Vector2(60, 1200)
+texture = SubResource("PlaceholderTexture2D_wall")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_player")]
+position = Vector2(540, 1500)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="HouseNPC" parent="NPCs" instance=ExtResource("2_npc")]
+position = Vector2(540, 700)
+npc_id = "house_npc"
+npc_name = "Mysterious Figure"
+
+[node name="Portals" type="Node2D" parent="."]
+
+[node name="PortalToField" parent="Portals" instance=ExtResource("3_portal")]
+position = Vector2(540, 1500)
+target_scene = "res://scenes/world/field.tscn"
+spawn_position = Vector2(900, 350)
+
+[node name="HUD" parent="." instance=ExtResource("4_hud")]
+
+[node name="MobileControls" parent="." instance=ExtResource("5_mobile")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("6_dialogue")]
+
+[node name="QuestLog" parent="." instance=ExtResource("7_quest_log")]
