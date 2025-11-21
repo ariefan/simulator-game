@@ -2,6 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/ui/dialogue_box.gd" id="1_dialogue"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_speaker"]
+font_size = 24
+font_color = Color(1, 0.8, 0.2, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_continue"]
+font_size = 14
+font_color = Color(0.7, 0.7, 0.7, 1)
+
 [node name="DialogueBox" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_dialogue")
@@ -46,11 +54,3 @@ layout_mode = 2
 text = "[Press INTERACT to continue]"
 horizontal_alignment = 2
 label_settings = SubResource("LabelSettings_continue")
-
-[sub_resource type="LabelSettings" id="LabelSettings_speaker"]
-font_size = 24
-font_color = Color(1, 0.8, 0.2, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_continue"]
-font_size = 14
-font_color = Color(0.7, 0.7, 0.7, 1)

@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="1_inventory"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 32
+
 [node name="InventoryUI" type="CanvasLayer"]
 layer = 4
 script = ExtResource("1_inventory")
@@ -59,6 +62,3 @@ text = "USE ITEM"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "CLOSE"
-
-[sub_resource type="LabelSettings" id="LabelSettings_title"]
-font_size = 32

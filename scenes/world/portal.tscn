@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/world/portal.gd" id="1_portal"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_portal"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_portal"]
 size = Vector2(60, 60)
 
@@ -25,5 +27,3 @@ offset_right = 40.0
 offset_bottom = -40.0
 text = "[E] Enter"
 horizontal_alignment = 1
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_portal"]

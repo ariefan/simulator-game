@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/ui/quest_log.gd" id="1_quest_log"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 32
+
 [node name="QuestLog" type="CanvasLayer"]
 layer = 3
 script = ExtResource("1_quest_log")
@@ -58,6 +61,3 @@ layout_mode = 2
 text = "No active quests"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_title"]
-font_size = 32
